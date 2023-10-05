@@ -31,7 +31,9 @@ const Header: FC = () => {
         }`}
       >
         <div className="absolute left-1/2 -translate-x-1/2">
-          <h1 className="text-[36px] text-center">🪐 Interstellar</h1>
+          <a className="text-center text-[36px]" href="/">
+            🪐 Interstellar
+          </a>
         </div>
         <RainbowKitConnectButton />
       </header>

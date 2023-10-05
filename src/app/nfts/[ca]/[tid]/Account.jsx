@@ -138,12 +138,6 @@ function Account(props) {
           <Button onClick={() => executeCall()}>Send</Button>
         </>
       )}
-      {/* <iframe
-        title="app"
-        src={"https://app.uniswap.org/swap"}
-        ref={iframeRef}
-        className="h-[400px] w-[400px]"
-      /> */}
     </div>
   );
 }

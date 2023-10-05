@@ -1,4 +1,4 @@
-# **Interstellar**
+# **🪐 Interstellar**
 
 ### _Powering Token Bound Accounts with Space IDs_
 
