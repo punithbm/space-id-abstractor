@@ -1,6 +1,5 @@
 import { sortBy } from "lodash";
 
-import { TDotNestedKeys } from "../../i18n/Translate";
 import { useDeepCompareMemo } from "./useDeepCompareMemo";
 
 export const useOrder = <T,>(

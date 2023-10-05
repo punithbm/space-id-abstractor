@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 
-import { detectIfMac } from "..";
 
 function useKeyPress(callback: () => void): boolean {
   const [keyPressed, setKeyPressed] = useState(false);
   useEffect(() => {
     const downHandler = ({ code, metaKey, ctrlKey }: KeyboardEvent) => {
       if (
-        (code === "KeyK" && metaKey && detectIfMac()) ||
-        (code === "KeyK" && ctrlKey && !detectIfMac())
+        (code === "KeyK" && metaKey) ||
+        (code === "KeyK" && ctrlKey)
       ) {
         setKeyPressed(true);
         callback();

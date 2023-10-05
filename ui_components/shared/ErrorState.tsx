@@ -15,7 +15,7 @@ const ErrorState: FC<IErrorStateProps> = ({ errMsg, onClick }) => {
     <Card className="bg-white h-full flex flex-col items-center justify-center">
       <h2 className="paragraph1_regular mb-2">{errMsg}</h2>
       <img
-        src={icons.refreshBlackIcon}
+        src={""}
         alt="refresh"
         onClick={onClick}
         role="presentation"

@@ -110,7 +110,7 @@ const InputField: FC<IInputFieldProps> = (props) => {
             OnClear?.("");
           }}
           role="presentation"
-          src={icons.closeGrey}
+          src={""}
           alt="search"
         />
       ) : null}

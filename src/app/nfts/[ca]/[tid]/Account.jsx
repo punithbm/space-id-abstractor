@@ -102,7 +102,11 @@ function Account(props) {
   };
   return (
     <div>
-      <div className="mt-5 flex items-center gap-20 rounded bg-[#48BB78] p-2">
+      <div
+        className={`mt-5 flex items-center gap-20 rounded ${
+          isAccountDeployed ? "bg-[#48BB78]" : "bg-[#ffbd06] "
+        } p-2`}
+      >
         <div className="flex flex-col gap-3">
           <div className="text-sm font-bold">Token Bound Account :</div>
         </div>
@@ -113,7 +117,10 @@ function Account(props) {
       {/* <p>Generated Address : {generatedAddress}</p> */}
       <br />
       {!isAccountDeployed ? (
-        <Button onClick={() => createAccount()}>Deploy Account</Button>
+        <>
+          <p className="mb-2">Status Not Deployed </p>
+          <Button onClick={() => createAccount()}>Deploy</Button>
+        </>
       ) : (
         <p>Status Deployed </p>
       )}
@@ -128,9 +135,7 @@ function Account(props) {
           </Button>
           <br />
           <br />
-          <Button onClick={() => executeCall()}>
-            Send
-          </Button>
+          <Button onClick={() => executeCall()}>Send</Button>
         </>
       )}
       {/* <iframe

@@ -1,4 +1,3 @@
-
 import CopyIcon from "./CopyIcon";
 import ErrorState from "./ErrorState";
 import Header from "./Header";
@@ -12,5 +11,5 @@ export {
   Header,
   LineLoader,
   NoState,
-  RainbowKitConnectButton
+  RainbowKitConnectButton,
 };

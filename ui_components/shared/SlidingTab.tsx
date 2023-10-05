@@ -1,12 +1,11 @@
 "use client";
 import { FC, useEffect, useRef, useState } from "react";
 
-import { TContractNestedTabs } from "../contract-details/types";
 
 export interface ISlidingTabProps {
   tabData?: any;
-  activeTab: TContractNestedTabs;
-  handleTabClick: (val: TContractNestedTabs) => void;
+  activeTab: any;
+  handleTabClick: (val: any) => void;
 }
 const SlidingTab: FC<ISlidingTabProps> = ({
   tabData,
