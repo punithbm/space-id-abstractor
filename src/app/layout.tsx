@@ -12,7 +12,7 @@ export default function RootLayout(props: {
 }) {
   return (
     <html lang="en">
-      <body className="h-full bg-black">
+      <body className="h-full bg-[#191927]">
         <WagmiWrapper>
           <Header />
           <main className={`pt-[92px]`}>

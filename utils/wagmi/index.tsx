@@ -3,13 +3,13 @@ import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { ReactElement } from "react";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { arbitrum, goerli, mainnet, opBNB } from "wagmi/chains";
+import { arbitrum, bsc, goerli, mainnet } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 
 import { productName, rainbowKitProjectId } from "../../constants";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [mainnet, arbitrum, opBNB, goerli],
+  [arbitrum, mainnet, bsc, goerli],
   [publicProvider()]
 );
 
@@ -19,7 +19,7 @@ const { connectors } = getDefaultWallets({
   chains,
 });
 
-const config = createConfig({
+export const wagmiClient = createConfig({
   autoConnect: true,
   connectors: connectors,
   publicClient,
@@ -28,7 +28,7 @@ const config = createConfig({
 
 export const WagmiHoc = ({ children }: { children: ReactElement }) => {
   return (
-    <WagmiConfig config={config}>
+    <WagmiConfig config={wagmiClient}>
       <RainbowKitProvider chains={chains}>{children}</RainbowKitProvider>
     </WagmiConfig>
   );

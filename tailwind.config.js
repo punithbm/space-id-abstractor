@@ -1,6 +1,5 @@
 /** @type {import ('tailwindcss').Config} */
 
-
 module.exports = {
   darkMode: "class",
   content: [
@@ -31,6 +30,9 @@ module.exports = {
       },
       transitionTimingFunction: {
         elastic: "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+      },
+      aspectRatio: {
+        "4/3": "4 / 3",
       },
     },
   },

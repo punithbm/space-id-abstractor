@@ -1,7 +1,7 @@
 import { connect, fetchBalance, getAccount } from "@wagmi/core";
 import { createContext, ReactNode, useContext } from "react";
-import { ConnectArgs, disconnect, sendTransaction } from "wagmi/actions";
-import { arbitrum, evmos, opBNB } from "wagmi/chains";
+import { disconnect, sendTransaction } from "wagmi/actions";
+import { arbitrum } from "wagmi/chains";
 import { InjectedConnector } from "wagmi/connectors/injected";
 
 import { WagmiHoc } from ".";
@@ -13,7 +13,7 @@ interface IProps {
 export type TGlobalContextType = {
   connect?: any;
   fetchBalance?: any;
-  evmos?: any;
+  arbitrum?: any;
   InjectedConnector?: any;
   getAccount?: any;
   disconnect?: any;
@@ -29,7 +29,7 @@ const WagmiProvider = ({ children }: IProps) => {
       value={{
         connect,
         fetchBalance,
-        evmos,
+        arbitrum,
         InjectedConnector,
         getAccount,
         disconnect,
@@ -52,16 +52,16 @@ const useWagmi = () => {
   const {
     connect,
     fetchBalance,
-    evmos,
+    arbitrum,
     InjectedConnector,
     getAccount,
     disconnect,
   } = useContext(WalletContext);
-  const injectConnector = new InjectedConnector({ chains: [evmos] });
+  const injectConnector = new InjectedConnector({ chains: [arbitrum] });
   return {
     connect,
     fetchBalance,
-    evmos,
+    arbitrum,
     InjectedConnector,
     injectConnector,
     sendTransaction,

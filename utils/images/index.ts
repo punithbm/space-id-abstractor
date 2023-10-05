@@ -1,18 +1,13 @@
+import banner from "../../public/assets/images/banner.png";
 
-// import logoBlack from "../../public/assets/images/logo_black.svg";
+export type TImages = "banner";
 
+export type TNextImage = {
+  src: string;
+  height: number;
+  width: number;
+};
 
-// export type TImages =
-//     | "logoBlack"
-   
-
-// export type TNextImage = {
-//     src: string;
-//     height: number;
-//     width: number;
-// };
-
-// export const icons: Record<TImages, TNextImage> = {
-//     logoBlack,
-  
-// };
+export const icons: Record<TImages, TNextImage> = {
+  banner,
+};

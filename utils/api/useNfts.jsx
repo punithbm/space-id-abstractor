@@ -1,16 +1,24 @@
-import { Client } from "@covalenthq/client-sdk";
+// import { Client } from '@covalenthq/client-sdk';
 import useSWR from "swr";
+const COVALENT_BASE_URL = "https://api.covalenthq.com/v1";
+const COVALENT_API_KEY = "cqt_rQcRCCmrKgQH7kQbYBpm4WjtGKtC";
 
-const fetchNFTs = async ({ address }) => {
-  const client = new Client("cqt_rQcRCCmrKgQH7kQbYBpm4WjtGKtC");
-  const resp = await client.NftService.getNftsForAddress(
-    "eth-goerli",
-    address || "",
-    { withUncached: true }
+export const fetchNFTs = async ({ chain_id, address }) => {
+  const queryParams = new URLSearchParams({
+    key: COVALENT_API_KEY,
+    "with-uncached": "true",
+    "no-logs": "true",
+  });
+
+  const covalentNFTsResponse = await fetch(
+    `${COVALENT_BASE_URL}/${chain_id}/address/${address}/balances_nft/?${queryParams}`,
+    {
+      method: "GET",
+    }
   );
+  const { data } = await covalentNFTsResponse.json();
   const nfts = [];
-
-  resp.data.items.forEach((_nftGroup) => {
+  data.items.forEach((_nftGroup) => {
     _nftGroup.nft_data.forEach((_nft) => {
       const _newData = {
         ..._nftGroup,
@@ -24,10 +32,10 @@ const fetchNFTs = async ({ address }) => {
   return nfts;
 };
 
-const useNFTs = ({ address }) => {
+const useNFTs = ({ chain_id, address }) => {
   const canFetch = address;
   const { data: nfts, isValidating: nftsLoader } = useSWR(
-    canFetch ? { type: "nfts", address } : null,
+    canFetch ? { type: "nfts", chain_id, address } : null,
     fetchNFTs,
     {
       revalidateIfStale: true,
