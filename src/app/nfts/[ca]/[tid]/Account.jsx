@@ -9,7 +9,7 @@ import { useWagmi } from "@/utils/wagmi/WagmiContext";
 import { wagmiClient as client } from "../../../../../utils/wagmi/index";
 import Button from "./Button";
 
-const ethAmount = 0.0001;
+const ethAmount = 0.001;
 const ethAmountWei = parseUnits(`${ethAmount}`, 18);
 
 function Account(props) {
@@ -104,7 +104,7 @@ function Account(props) {
     <div>
       <div className="mt-5 flex items-center gap-20 rounded bg-[#48BB78] p-2">
         <div className="flex flex-col gap-3">
-          <div className="text-sm font-bold">Tokenbound Account :</div>
+          <div className="text-sm font-bold">Token Bound Account :</div>
         </div>
         <div className="flex flex-col gap-3">
           <p className="ml-[-32px]">{generatedAddress}</p>
@@ -113,23 +113,26 @@ function Account(props) {
       {/* <p>Generated Address : {generatedAddress}</p> */}
       <br />
       {!isAccountDeployed ? (
-        <Button onClick={() => createAccount()}>Create Account</Button>
+        <Button onClick={() => createAccount()}>Deploy Account</Button>
       ) : (
-        <p>{generatedAddress} account is already deployed </p>
+        <p>Status Deployed </p>
       )}
 
       <br />
       <br />
 
-      <Button onClick={() => sendETHTokenToAAWallet()}>
-        Send {ethAmount} ETH to {generatedAddress}
-      </Button>
-      <br />
-      <br />
-      <Button onClick={() => executeCall()}>
-        Send Token from NFT AA Account to your account back to {address}
-      </Button>
-
+      {isAccountDeployed && (
+        <>
+          <Button onClick={() => sendETHTokenToAAWallet()}>
+            Receive {ethAmount} ETH
+          </Button>
+          <br />
+          <br />
+          <Button onClick={() => executeCall()}>
+            Send
+          </Button>
+        </>
+      )}
       {/* <iframe
         title="app"
         src={"https://app.uniswap.org/swap"}

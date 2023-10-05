@@ -77,11 +77,11 @@ function LandingPage() {
               <div className="px-2 py-3">
                 <p className="mt-1 text-lg font-medium text-gray-200">
                   {" "}
-                  Contract : {_nft.contract_name}
+                  Contract: {_nft.contract_name}
                 </p>
                 <div className="mt-1 text-lg font-medium text-gray-200">
                   {" "}
-                  Contract Address:
+                  Contract Address: {" "}
                   <a
                     href={getExplorerUrl(
                       "address",
@@ -94,15 +94,15 @@ function LandingPage() {
                 </div>
                 <p className="mt-1 text-lg font-medium text-gray-200">
                   {" "}
-                  Token ID : {trimAddress(String(_nft.nftData.token_id), 5)}
+                  Token ID: {trimAddress(String(_nft.nftData.token_id), 5)}
                 </p>
                 <p className="mt-1 text-lg font-medium text-gray-200">
                   {" "}
-                  Owner : {trimAddress(_nft.nftData.original_owner, 5)}
+                  Owner: {trimAddress(_nft.nftData.original_owner, 5)}
                 </p>
                 <p className="mt-1 text-lg font-medium text-gray-200">
                   {" "}
-                  Original owner : {trimAddress(_nft.nftData.original_owner, 5)}
+                  Original Owner: {trimAddress(_nft.nftData.original_owner, 5)}
                 </p>
               </div>
               <div className="p-2">

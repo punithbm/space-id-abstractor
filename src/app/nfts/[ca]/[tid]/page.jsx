@@ -37,17 +37,17 @@ export default function Page(props) {
           <div className="col-span-8">
             <div className="flex items-center gap-20">
               <div className="flex flex-col gap-5">
-                <div className="text-sm font-bold">Contract :</div>
-                <div className="text-sm font-bold">Contract Address :</div>
-                <div className="text-sm font-bold">Token ID :</div>
-                <div className="text-sm font-bold">Owner :</div>
+                <div className="text-sm font-bold">Contract:</div>
+                <div className="text-sm font-bold">Contract Address:</div>
+                <div className="text-sm font-bold">Token ID:</div>
+                <div className="text-sm font-bold">Owner:</div>
                 {/* <div className="text-sm font-bold">Generated Address :</div> */}
               </div>
               <div className="flex flex-col gap-5">
                 <p>{getNft.contract_name}</p>
                 <p>{getNft.contract_address}</p>
-                <p> {truncateText(getNft.nftData.token_id)}</p>
-                <p> {getNft.nftData.original_owner}</p>
+                <p>{truncateText(getNft.nftData.token_id)}</p>
+                <p>{getNft.nftData.original_owner}</p>
               </div>
             </div>
             <Account
