@@ -15,8 +15,10 @@ const CopyIcon: FC<ICopyIconProps> = ({ icon, className, text }) => {
       alt="copy"
       width={12}
       height={12}
-      onClick={() => {
+      onClick={(e) => {
         copyToClipBoard(text);
+        e.preventDefault();
+        e.stopPropagation();
       }}
     />
   );

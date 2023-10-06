@@ -1,15 +1,16 @@
 import "@rainbow-me/rainbowkit/styles.css";
 
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { switchNetwork } from '@wagmi/core';
 import { ReactElement } from "react";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { arbitrum, bsc } from "wagmi/chains";
+import { arbitrum, bsc ,goerli} from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 
 import { productName, rainbowKitProjectId } from "../../constants";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [arbitrum, bsc],
+  [arbitrum, bsc,goerli],
   [publicProvider()]
 );
 
@@ -33,3 +34,9 @@ export const WagmiHoc = ({ children }: { children: ReactElement }) => {
     </WagmiConfig>
   );
 };
+
+// export const switchToNFTNetwork = async (chain_id: number) => {
+//   await switchNetwork({
+//     chainId: chain_id,
+//   });
+// };

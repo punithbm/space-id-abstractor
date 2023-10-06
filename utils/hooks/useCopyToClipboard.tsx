@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { toastFlashMessage } from "..";
 
 type TCopiedValue = string | null;
 type TCopyFn = (text: string) => Promise<boolean>;
@@ -22,13 +23,13 @@ const useCopyToClipboard = (): [TCopiedValue, TCopyFn] => {
       } finally {
         textArea.remove();
       }
-      // toastFlashMessage("Copied to clipboard", "success");
+      toastFlashMessage("Copied to clipboard", "success");
       return false;
     }
 
     try {
       await navigator?.clipboard?.writeText(text);
-      // toastFlashMessage("Copied to clipboard", "success");
+      toastFlashMessage("Copied to clipboard", "success");
       setCopiedText?.(text);
       return true;
     } catch (error) {

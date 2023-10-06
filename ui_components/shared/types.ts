@@ -1,4 +1,4 @@
-
+import { TNextImage } from "@/utils/images";
 
 export interface ISidebarProps {
   className?: string;
@@ -24,7 +24,7 @@ export interface IGlobalSearchProps {
 }
 
 export interface ICopyIconProps {
-  icon: string;
+  icon: TNextImage | string;
   text: string;
   className?: string;
 }

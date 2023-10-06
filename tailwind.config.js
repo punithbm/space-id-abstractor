@@ -28,6 +28,10 @@ module.exports = {
           "2xl": "1rem",
         },
       },
+      backgroundImage: {
+        primaryGradient:
+          "linear-gradient(132deg, #01090F 31.04%, #032942 100%)",
+      },
       transitionTimingFunction: {
         elastic: "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
       },

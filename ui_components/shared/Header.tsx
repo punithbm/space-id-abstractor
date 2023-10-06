@@ -1,8 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 
-import { Button } from "..";
 import { RainbowKitConnectButton } from ".";
 const Header: FC = () => {
   const [scrollY, setScrollY] = useState(false);
@@ -31,9 +31,9 @@ const Header: FC = () => {
         }`}
       >
         <div className="absolute left-1/2 -translate-x-1/2">
-          <a className="text-center text-[36px]" href="/">
+          <Link className="text-center text-[36px]" href="/">
             🪐 Interstellar
-          </a>
+          </Link>
         </div>
         <RainbowKitConnectButton />
       </header>
