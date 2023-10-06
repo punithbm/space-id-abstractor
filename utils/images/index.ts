@@ -5,7 +5,7 @@ import toastSuccessIcon from "../../public/assets/images/toast_success_icon.svg"
 import redirectGrey from "../../public/assets/images/redirect_grey.svg";
 import redirectWhite from "../../public/assets/images/redirect_white.svg";
 import backGrey from "../../public/assets/images/back_grey.svg";
-
+import imagePlaceholder from "../../public/assets/images/placeholder.jpeg"
 export type TImages =
   | "banner"
   | "copyGrey"
@@ -13,7 +13,8 @@ export type TImages =
   | "toastSuccessIcon"
   | "redirectGrey"
   | "redirectWhite"
-  | "backGrey";
+  | "backGrey" 
+  | "imagePlaceholder";
 
 export type TNextImage = {
   src: string;
@@ -29,4 +30,5 @@ export const icons: Record<TImages, TNextImage> = {
   redirectGrey,
   backGrey,
   redirectWhite,
+  imagePlaceholder
 };

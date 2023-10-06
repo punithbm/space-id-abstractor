@@ -54,7 +54,6 @@ export const fetchAllNFTs = async ({ chain_ids, address }) => {
     return fetchNFTs({ chain_id, address });
   });
   const allNFTS = await Promise.all(nfts);
-  console.log(allNFTS);
   return [].concat.apply([], allNFTS);
 };
 

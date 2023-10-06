@@ -10,7 +10,6 @@ export const fetchTokens = async ({ chain_id, address }) => {
     address,
     {}
   );
-  console.log(resp.data);
   return resp.data;
 };
 

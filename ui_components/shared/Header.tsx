@@ -26,16 +26,18 @@ const Header: FC = () => {
   return (
     <>
       <header
-        className={`fixed left-0 top-0 z-10 flex h-[92px] w-full items-center justify-end border-b border-[#00cbc6] bg-white/0 px-8 py-6 ${
+        className={`fixed left-0 top-0 z-10  h-[92px] w-full  border-b border-[#00cbc6] bg-white/0 px-8 py-6 ${
           scrollY ? "backdrop-blur-[12px]" : ""
         }`}
       >
-        <div className="absolute left-1/2 -translate-x-1/2">
+          <div className="flex items-center justify-between">
           <Link className="text-center text-[36px]" href="/">
             🪐 Interstellar
           </Link>
-        </div>
-        <RainbowKitConnectButton />
+
+          <RainbowKitConnectButton />
+          </div>
+       
       </header>
     </>
   );

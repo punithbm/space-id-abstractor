@@ -19,20 +19,6 @@ function LandingPage() {
   const { chain } = useNetwork();
   const router = useRouter();
 
-  const getEnsName = async () => {
-    try {
-      const response = await fetch(
-        `https://cors.codecrane.com/https://api.prd.space.id/v1/getName?tld=arb1&address=${address}`
-      );
-      const data = await response.json();
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  useEffect(() => {
-    getEnsName();
-  }, []);
-
   const chainsSupported = Object.values(COVALENT_CHAIN_PARAMS).map(
     (value) => value
   );
@@ -55,7 +41,6 @@ function LandingPage() {
   async function navigateToNFTAccount(_nft: any) {
     try {
       if (!_nft?.nftData?.chain_id) throw new Error("CHAIN ID NOT PRESENT");
-      console.log(_nft?.nftData?.chain_id);
       switchNetwork({
         chainId: _nft?.nftData?.chain_id,
       });
@@ -126,13 +111,13 @@ function LandingPage() {
                   key={_nft.contract_address}
                 >
                   <div className="w-full overflow-hidden rounded-l">
-                    {_nft?.nftData?.external_data?.image && (
-                      <img
-                        src={_nft.nftData.external_data.image}
+                  <Image
+                        src={_nft?.nftData?.external_data?.image?.includes("http") ?  _nft?.nftData?.external_data?.image : icons.imagePlaceholder}
                         className="rounded-xl aspect-square h-full w-full object-cover object-center transition-all duration-300 ease-out group-hover:scale-[1.05]"
                         alt="nft"
+                        width={300}
+                        height={300}
                       />
-                    )}
                   </div>
 
                   <div className="px-2 py-3">

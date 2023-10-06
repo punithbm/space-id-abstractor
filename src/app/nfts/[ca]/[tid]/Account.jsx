@@ -69,8 +69,8 @@ function Account(props) {
       );
 
       // if (address) {
-      //   walletClient?.sendTransaction(preparedCreateAccount)
-      //   walletClient?.sendTransaction(preparedExecuteCall)
+      //   walletClient?.sendTransaction(preparedCreateAccount);
+      //   walletClient?.sendTransaction(preparedExecuteCall);
       // }
     }
 
@@ -173,7 +173,7 @@ function Account(props) {
 
               <Button onClick={() => executeCall()}>Send</Button>
             </div>
-            <div className="my-2 py-10">
+            {/* <div className="my-2 py-10">
               <h1>Tokens available in the Token Bound Account:</h1>
               <div className="flex flex-wrap gap-1">
                 {tokens?.items?.length > 0 &&
@@ -195,7 +195,7 @@ function Account(props) {
                     );
                   })}
               </div>
-            </div>
+            </div> */}
           </>
         )}
       </div>
